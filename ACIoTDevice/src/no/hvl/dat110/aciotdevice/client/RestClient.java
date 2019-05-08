@@ -41,7 +41,6 @@ public class RestClient {
 
 			// send the response over the TCP connection
 			OutputStream output = s.getOutputStream();
-
 			PrintWriter pw = new PrintWriter(output, false);
 			pw.print(httppostrequest);
 			pw.flush();
@@ -69,16 +68,14 @@ public class RestClient {
 					+ "Host: localhost\r\n" + "Connection: close\r\n" + "\r\n";
 			
 			OutputStream output = s.getOutputStream();
-	
 			PrintWriter pw = new PrintWriter(output, false);
-	
 			pw.print(httpgetrequest);
 			pw.flush();
 		
 			InputStream in = s.getInputStream();
-
 			Scanner scan = new Scanner(in);
 			StringBuilder jsonresponse = new StringBuilder();
+			
 			boolean header = true;
 			
 			while (scan.hasNext()) {
@@ -95,12 +92,11 @@ public class RestClient {
 				}
 
 			}
-
-			scan.close();
 			
 			Gson gson = new Gson();
 			code = gson.fromJson(jsonresponse.toString(), AccessCode.class);
 			
+			scan.close();
 			s.close();
 			
 		} catch (UnknownHostException e) {
