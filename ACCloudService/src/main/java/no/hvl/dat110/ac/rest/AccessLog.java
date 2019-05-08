@@ -42,28 +42,6 @@ public class AccessLog {
 	
 	// TODO: JSON representation of the access log
 	public String toJson () {
-    	
-		/*
-		int i = 0;
-		
-		String json = "";
-		json+= "[\n";
-		for(AccessEntry entry : log.values()) {
-			
-			i++;
-			
-			json += "\t{\n\t\t\"id\": " + entry.getId() + "," + "\n\t\t"
-					+ "\"message: \"" + entry.getMessage() + "\"" + "\n"
-					+ "\t}";
-			
-			if(i < log.size())
-				json+=",";
-			
-			json+="\n";
-			
-		}
-		json+="]";
-    	*/
 		
 		int i = 0;
 		
@@ -80,6 +58,6 @@ public class AccessLog {
 		
 		json += "]";
 		
-    	return json;//json;
+    	return json;
     }
 }
